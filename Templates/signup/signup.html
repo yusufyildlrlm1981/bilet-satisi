@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Kaydolma Sayfası</title>
+  {% load static %}
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/set1.css' %}">
+
+  <!--Google Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<div id="main-wrapper">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 left-side">
+
+        <header>
+          <span>Bir hesaba mı ihtiyacınız var?</span>
+          <h3>Hesap Aç<br>İşleme Başla</h3>
+        </header>
+      </div>
+      <div class="col-md-6 right-side">
+        <form method='POST' action=''>{% csrf_token %}
+        <span class="input input--hoshi">
+          <input class="input__field input__field--hoshi" type="text" id="" />
+          <label class="input__label input__label--hoshi input__label--hoshi-color-3">
+            <span class="input__label-content input__label-content--hoshi"></span>
+
+          </label>
+          {{ warning }}
+          {{ form.as_p }}
+        </span>
+
+        <div class="cta">
+          <button class="btn btn-primary pull-left" type='submit' action='/'>
+            Giriş Yaptınız
+          </button>
+          <span><a href="/">Ben zaten üyeyim</a></span>
+        </div>
+        </form>
+ 
+      </div>
+    </div>
+  </div>
+
+</div> <!-- end #main-wrapper -->
+
+<!-- Scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</body>
+</html>
+

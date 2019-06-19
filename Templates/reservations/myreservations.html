@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>REZERVASYONLARIM</title>
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/event.css' %}">
+
+<body>
+<div class="table-title">
+<h3>REZERVASYONLARIM | {{email}}</h3>
+    <h4>{{ warning}}</h4>
+    <form action = "/browse/">{% csrf_token %}
+        <button  type="submit">ANA SAYFAYA DÖN</button>
+                </form>
+<form method="post" >{% csrf_token %}
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Tarih</th>
+<th class="text-left">Adý</th>
+<th class="text-left">Türü</th>
+<th class="text-left">Satýn Alýnan Biletler</th>
+<th class="text-left">Rezervasyonu Sil</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+
+{% for a,b,c,d,e in query_results %}
+
+<tr>
+<td class="text-left">{{ a }}</td>
+<td class="text-left">{{ b }}</td>
+<td class="text-left">{{ c }}</td>
+<td class="text-left">{{ d }}</td>
+<th class="text-left">
+    <input type="integer" placeholder="Rezervasyonu Sil" name= "partialInput{{ e }}" >
+    <input class="button yellow" type="submit" value="Rezervasyonu Sil" name= "partialButton{{ e }}">
+    <input class="button yellow" type="submit" value="Tüm Rezervasyonu Sil" name= {{ e }}>
+</th>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</form>
+</body>
+
